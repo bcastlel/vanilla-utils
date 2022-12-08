@@ -11,8 +11,7 @@ const isFileTypeCompatible = ({ name, type }: File, accept: string): boolean => 
   return acceptableTypes.some((acceptableType) => {
     // check the extension
     if (acceptableType.startsWith('.')) {
-      const extension = name.toLowerCase().substring(name.lastIndexOf('.'));
-      return extension === acceptableType;
+      return name.toLowerCase().endsWith(acceptableType);
     }
 
     // check the main type
