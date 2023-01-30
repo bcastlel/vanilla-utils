@@ -1,5 +1,5 @@
 /** Read more about accept — https://www.w3schools.com/TAGS/att_input_accept.asp */
-const isFileTypeCompatible = ({ name, type }: File, accept: string): boolean => {
+const isFileTypeCompatible = ({ name, type }: File, accept?: string): boolean => {
   if (!accept) {
     return true;
   }
