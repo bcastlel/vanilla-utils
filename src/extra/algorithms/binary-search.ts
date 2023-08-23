@@ -1,13 +1,14 @@
-type Comparator<T = any> = (a: T, b: T) => -1 | 0 | 1;
+import { Comparator, DEFAULT_COMPARATOR } from '../helpers';
 
-const DEFAULT_COMPARATOR: Comparator = (a, b) => {
-  if (a === b) {
-    return 0;
-  }
-
-  return a > b ? 1 : -1;
-};
-
+/**
+ * Worst-case performance: O(log n)
+ *
+ * Best-case performance: O(1)
+ *
+ * Average performance: O(log n)
+ *
+ * Worst-case space complexity: O(1)
+ */
 const binarySearch = <T>(sortedArr: T[], value: T, comparator: Comparator<T> = DEFAULT_COMPARATOR): number => {
   let low = 0;
   let high = sortedArr.length - 1;
