@@ -7,7 +7,7 @@ import { Comparator, DEFAULT_COMPARATOR, wrapSortingFn } from '../helpers';
  *
  * Average performance: O(n^2)
  *
- * Worst-case space complexity: O(1)
+ * Space complexity: O(1)
  */
 const selectionSort = <T>(arr: T[], comparator: Comparator<T> = DEFAULT_COMPARATOR): T[] => {
   for (let i = 0; i < arr.length - 1; i++) {

@@ -22,9 +22,9 @@ const merge = <T>(a: T[], b: T[], comparator: Comparator<T> = DEFAULT_COMPARATOR
  *
  * Average performance: O(n * log n)
  *
- * Worst-case space complexity: O(n)
+ * Space complexity: O(n)
  */
-const sort = <T>(arr: T[], comparator?: Comparator<T>): T[] => {
+const mergeSort = <T>(arr: T[], comparator: Comparator<T> = DEFAULT_COMPARATOR): T[] => {
   if (arr.length <= 1) {
     return arr;
   }
@@ -34,12 +34,12 @@ const sort = <T>(arr: T[], comparator?: Comparator<T>): T[] => {
   const left = arr.slice(0, half);
   const right = arr.slice(half);
 
-  const sortedLeft = sort(left, comparator);
-  const sortedRight = sort(right, comparator);
+  const sortedLeft = mergeSort(left, comparator);
+  const sortedRight = mergeSort(right, comparator);
 
   return merge(sortedLeft, sortedRight, comparator);
 };
 
-const sortWrapper = wrapSortingFn(sort);
+const mergeSortWrapper = wrapSortingFn(mergeSort);
 
-export default sortWrapper;
+export default mergeSortWrapper;
