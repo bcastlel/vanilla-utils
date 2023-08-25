@@ -1,4 +1,4 @@
-import { Comparator, DEFAULT_COMPARATOR, wrapSortingFn } from '../helpers';
+import { Comparator, DEFAULT_COMPARATOR, wrapAlgorithm } from '../helpers';
 
 /**
  * Worst-case performance: O(n^2)
@@ -7,7 +7,7 @@ import { Comparator, DEFAULT_COMPARATOR, wrapSortingFn } from '../helpers';
  *
  * Average performance: O(n^2)
  *
- * Space complexity: O(1)
+ * Average space complexity: O(1)
  */
 const insertionSort = <T>(arr: T[], comparator: Comparator<T> = DEFAULT_COMPARATOR): T[] => {
   for (let i = 1; i < arr.length; i++) {
@@ -24,6 +24,6 @@ const insertionSort = <T>(arr: T[], comparator: Comparator<T> = DEFAULT_COMPARAT
   return arr;
 };
 
-const insertionSortWrapper = wrapSortingFn(insertionSort);
+const insertionSortWrapper = wrapAlgorithm(insertionSort);
 
 export default insertionSortWrapper;

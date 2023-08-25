@@ -1,4 +1,4 @@
-import { Comparator, DEFAULT_COMPARATOR, wrapSortingFn } from '../helpers';
+import { Comparator, DEFAULT_COMPARATOR, wrapAlgorithm } from '../helpers';
 
 const merge = <T>(a: T[], b: T[], comparator: Comparator<T> = DEFAULT_COMPARATOR): T[] => {
   let i = 0;
@@ -22,7 +22,7 @@ const merge = <T>(a: T[], b: T[], comparator: Comparator<T> = DEFAULT_COMPARATOR
  *
  * Average performance: O(n * log n)
  *
- * Space complexity: O(n)
+ * Average space complexity: O(n)
  */
 const mergeSort = <T>(arr: T[], comparator: Comparator<T> = DEFAULT_COMPARATOR): T[] => {
   if (arr.length <= 1) {
@@ -40,6 +40,6 @@ const mergeSort = <T>(arr: T[], comparator: Comparator<T> = DEFAULT_COMPARATOR):
   return merge(sortedLeft, sortedRight, comparator);
 };
 
-const mergeSortWrapper = wrapSortingFn(mergeSort);
+const mergeSortWrapper = wrapAlgorithm(mergeSort);
 
 export default mergeSortWrapper;
