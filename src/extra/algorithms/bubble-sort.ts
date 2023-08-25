@@ -1,4 +1,4 @@
-import { Comparator, DEFAULT_COMPARATOR, wrapSortingFn } from '../helpers';
+import { Comparator, DEFAULT_COMPARATOR, wrapAlgorithm } from '../helpers';
 
 /**
  * Worst-case performance: O(n^2)
@@ -7,7 +7,7 @@ import { Comparator, DEFAULT_COMPARATOR, wrapSortingFn } from '../helpers';
  *
  * Average performance: O(n^2)
  *
- * Space complexity: O(1)
+ * Average space complexity: O(1)
  */
 const bubbleSort = <T>(arr: T[], comparator: Comparator<T> = DEFAULT_COMPARATOR): T[] => {
   for (let i = 0; i < arr.length - 1; i++) {
@@ -28,7 +28,7 @@ const bubbleSort = <T>(arr: T[], comparator: Comparator<T> = DEFAULT_COMPARATOR)
   return arr;
 };
 
-const bubbleSortWrapper = wrapSortingFn(bubbleSort);
+const bubbleSortWrapper = wrapAlgorithm(bubbleSort);
 
 export default bubbleSortWrapper;
 

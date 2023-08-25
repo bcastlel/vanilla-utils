@@ -1,4 +1,4 @@
-import { Comparator, DEFAULT_COMPARATOR, wrapSortingFn } from '../helpers';
+import { Comparator, DEFAULT_COMPARATOR, wrapAlgorithm } from '../helpers';
 import MinHeap from '../data-structures/min-heap';
 
 /**
@@ -8,7 +8,7 @@ import MinHeap from '../data-structures/min-heap';
  *
  * Average performance: O(n * log n)
  *
- * Space complexity: O(n) because of an extra array here, but it's possible to achieve O(1)
+ * Average space complexity: O(n) because of an extra array here, but it's possible to achieve O(1)
  */
 const heapSort = <T>(arr: T[], comparator: Comparator<T> = DEFAULT_COMPARATOR): T[] => {
   const sortedArr: T[] = [];
@@ -26,6 +26,6 @@ const heapSort = <T>(arr: T[], comparator: Comparator<T> = DEFAULT_COMPARATOR): 
   return sortedArr;
 };
 
-const heapSortWrapper = wrapSortingFn(heapSort);
+const heapSortWrapper = wrapAlgorithm(heapSort);
 
 export default heapSortWrapper;

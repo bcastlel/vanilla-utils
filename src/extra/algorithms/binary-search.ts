@@ -7,7 +7,7 @@ import { Comparator, DEFAULT_COMPARATOR } from '../helpers';
  *
  * Average performance: O(log n)
  *
- * Space complexity: O(1)
+ * Average space complexity: O(1)
  */
 const binarySearch = <T>(sortedArr: T[], value: T, comparator: Comparator<T> = DEFAULT_COMPARATOR): number => {
   let low = 0;
