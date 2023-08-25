@@ -1,5 +1,5 @@
 const factorial = (n: number): number => {
-  if (n === 0) {
+  if (!n) {
     return 1;
   }
 

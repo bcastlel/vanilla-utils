@@ -8,7 +8,7 @@ import MinHeap from '../data-structures/min-heap';
  *
  * Average performance: O(n * log n)
  *
- * Worst-case space complexity: O(n) because of an extra array here, but it's possible to achieve O(1)
+ * Space complexity: O(n) because of an extra array here, but it's possible to achieve O(1)
  */
 const heapSort = <T>(arr: T[], comparator: Comparator<T> = DEFAULT_COMPARATOR): T[] => {
   const sortedArr: T[] = [];
@@ -19,14 +19,8 @@ const heapSort = <T>(arr: T[], comparator: Comparator<T> = DEFAULT_COMPARATOR): 
   }
 
   for (let i = 0; i < arr.length; i++) {
-    const peekedEl = heap.peek();
-
-    if (peekedEl === undefined) {
-      break;
-    }
-
-    sortedArr.push(peekedEl);
-    heap.pop();
+    sortedArr.push(heap.peek()!);
+    heap.shift();
   }
 
   return sortedArr;

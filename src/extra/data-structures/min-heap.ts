@@ -33,37 +33,26 @@ class MinHeap<T> {
 
   private siftUp(): void {
     let i = this.arr.length - 1;
-    let parent = this.getParentOf(i);
 
-    while (parent !== undefined && this.comparator(this.arr[i], parent) < 0) {
-      const parentIndex = this.getParentIndexOf(i);
-
-      [this.arr[i], this.arr[parentIndex]] = [parent, this.arr[i]];
-
-      i = parentIndex;
-      parent = this.getParentOf(i);
+    while (this.getParentOf(i) !== undefined && this.comparator(this.arr[i], this.getParentOf(i)!) < 0) {
+      [this.arr[i], this.arr[this.getParentIndexOf(i)]] = [this.getParentOf(i)!, this.arr[i]];
+      i = this.getParentIndexOf(i);
     }
   }
 
   private siftDown(): void {
     let i = 0;
-    let leftChild = this.getLeftChildOf(i);
 
-    while (leftChild !== undefined) {
-      let minChild = leftChild;
+    while (this.getLeftChildOf(i) !== undefined) {
       let minChildIndex = this.getLeftChildIndexOf(i);
 
-      const rightChild = this.getRightChildOf(i);
-
-      if (rightChild !== undefined && this.comparator(rightChild, minChild) < 0) {
-        minChild = rightChild;
+      if (this.getRightChildOf(i) !== undefined && this.comparator(this.getRightChildOf(i)!, this.arr[minChildIndex]) < 0) {
         minChildIndex = this.getRightChildIndexOf(i);
       }
 
-      if (this.comparator(minChild, this.arr[i]) < 0) {
-        [this.arr[i], this.arr[minChildIndex]] = [minChild, this.arr[i]];
+      if (this.comparator(this.arr[minChildIndex], this.arr[i]) < 0) {
+        [this.arr[i], this.arr[minChildIndex]] = [this.arr[minChildIndex], this.arr[i]];
         i = minChildIndex;
-        leftChild = this.getLeftChildOf(i);
       } else {
         break;
       }
@@ -79,7 +68,7 @@ class MinHeap<T> {
     this.siftUp();
   }
 
-  pop(): void {
+  shift(): void {
     const poppedEl = this.arr.pop();
 
     if (poppedEl === undefined || !this.arr.length) {
