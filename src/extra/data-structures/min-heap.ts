@@ -1,7 +1,7 @@
 import { Comparator, DEFAULT_COMPARATOR } from '../helpers';
 
 class MinHeap<T> {
-  arr: T[];
+  private arr: T[];
 
   constructor(private comparator: Comparator<T> = DEFAULT_COMPARATOR) {
     this.arr = [];
@@ -59,13 +59,13 @@ class MinHeap<T> {
     }
   }
 
-  peek(): T | undefined {
-    return this.arr[0];
-  }
-
   push(el: T): void {
     this.arr.push(el);
     this.siftUp();
+  }
+
+  peek(): T | undefined {
+    return this.arr[0];
   }
 
   shift(): void {
@@ -77,6 +77,10 @@ class MinHeap<T> {
 
     this.arr[0] = poppedEl;
     this.siftDown();
+  }
+
+  size(): number {
+    return this.arr.length;
   }
 }
 
