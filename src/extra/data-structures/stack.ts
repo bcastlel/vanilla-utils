@@ -17,7 +17,7 @@ class Stack<T> {
     return this.arr.at(-1);
   }
 
-  size(): number {
+  get size(): number {
     return this.arr.length;
   }
 }

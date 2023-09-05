@@ -79,7 +79,7 @@ class MinHeap<T> {
     this.siftDown();
   }
 
-  size(): number {
+  get size(): number {
     return this.arr.length;
   }
 }
