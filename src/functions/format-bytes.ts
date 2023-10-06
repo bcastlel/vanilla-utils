@@ -12,7 +12,7 @@ const formatBytes = (bytes: number, countByIEC = false): string => {
 
   const count = bytes / (countByIEC ? 1024 : 1000) ** rank;
 
-  return `${numberFormatter.format(count)} ${(countByIEC ? IEC_UNITS_OF_DATA : SI_UNITS_OF_DATA)[rank]}`;
+  return `${numberFormatter.format(count)}\xA0${(countByIEC ? IEC_UNITS_OF_DATA : SI_UNITS_OF_DATA)[rank]}`;
 };
 
 export default formatBytes;
