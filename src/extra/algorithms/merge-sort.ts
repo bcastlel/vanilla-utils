@@ -1,4 +1,4 @@
-import { Comparator, DEFAULT_COMPARATOR, wrapAlgorithm } from '../helpers';
+import { type Comparator, DEFAULT_COMPARATOR } from '../helpers';
 
 const merge = <T>(a: T[], b: T[], comparator: Comparator<T> = DEFAULT_COMPARATOR): T[] => {
   let i = 0;
@@ -34,12 +34,10 @@ const mergeSort = <T>(arr: T[], comparator: Comparator<T> = DEFAULT_COMPARATOR):
   const left = arr.slice(0, half);
   const right = arr.slice(half);
 
-  const sortedLeft = mergeSort(left, comparator);
-  const sortedRight = mergeSort(right, comparator);
+  const leftSorted = mergeSort(left, comparator);
+  const rightSorted = mergeSort(right, comparator);
 
-  return merge(sortedLeft, sortedRight, comparator);
+  return merge(leftSorted, rightSorted, comparator);
 };
 
-const mergeSortWrapper = wrapAlgorithm(mergeSort);
-
-export default mergeSortWrapper;
+export default mergeSort;
